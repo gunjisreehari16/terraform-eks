@@ -15,16 +15,16 @@ module "eks" {
 
   eks_managed_node_group_defaults = {
     ami_type               = "AL2_x86_64"
-    instance_types         = ["t3.medium"]
+    instance_types         = ["t2.micro"]
     vpc_security_group_ids = [aws_security_group.all_worker_mgmt.id]
   }
 
   eks_managed_node_groups = {
 
     node_group = {
-      min_size     = 2
-      max_size     = 6
-      desired_size = 2
+      min_size     = 1
+      max_size     = 2
+      desired_size = 1
     }
   }
 }
